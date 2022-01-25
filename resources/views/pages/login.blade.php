@@ -5,7 +5,8 @@
     
     <div class="row">
         <div class="col-md-6 m-auto">
-            <form action="" method="post">
+            <form action="/login" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email" name="email">
