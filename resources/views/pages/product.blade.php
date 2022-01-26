@@ -29,4 +29,20 @@
             <span class="visually-hidden">Next</span>
         </a>
     </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach($data as $key=>$product)
+        <div class="col">
+            <div class="card h-100">
+                <a href="detail/{{$product['id']}}">
+                    <img src="{{$product['gallery']}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$product['name']}}</h5>
+                        <p class="card-text">{{$product['description']}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        @endforeach
+    </div>
 @endsection
