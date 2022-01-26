@@ -15,7 +15,13 @@ class ProductController extends Controller
     }
     function detail($id)
     {
-         $data= Product::find($id);
+        $data= Product::find($id);
         return view('pages/detail', ['product'=>$data]);
+    }
+    function search(Request $req)
+    {
+        $query=$req->input('query');
+        $data=Product::where('name', 'like', '%'.$query.'%')->get();
+        return view('pages/search', compact('data','query'));
     }
 }

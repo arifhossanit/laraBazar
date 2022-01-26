@@ -34,7 +34,7 @@
         @foreach($data as $key=>$product)
         <div class="col">
             <div class="card h-100">
-                <a href="detail/{{$product['id']}}">
+                <a href="detail/{{$product['id']}}" class="text-decoration-none underline">
                     <img src="{{$product['gallery']}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$product['name']}}</h5>
