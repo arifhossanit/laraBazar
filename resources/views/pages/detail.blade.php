@@ -21,7 +21,12 @@
           <p>
               <b><label for="qu">Quantity: </label> </b> 
               <input type="text" value="1" id="qu" class="form-control-sm text-center" > 
-              <button href="#" class="btn btn-primary" type="button" id="button-addon1" >Add To Cart</button>
+              <form action="/add_to_cart" method="post">
+                  @csrf
+                  <input type="hidden" name="product_id" value="{{$product->id}}">
+                  <button href="#" class="btn btn-primary" type="submit" id="button-addon1" >Add To Cart</button>
+              </form>
+              
         </p> 
       </div>
       <div class="col-12 bg-light mt-3">

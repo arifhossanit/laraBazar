@@ -1,3 +1,11 @@
+<?php
+  use App\Http\Controllers\ProductController;
+  $total=0;
+  if (Session::get('user')) {
+    $total = ProductController::cartItem();
+  }
+  
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">LaraBazar</a>
@@ -15,11 +23,27 @@
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
+        <li class="nav-item">
+        </li>
       </ul>
-      <form class="d-flex" action="\search" method="GET">
+      <form class="d-flex me-3" action="\search" method="GET">
         <input name="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
+      <div class="d-flex">
+        <a href="" class="text-decoration-none text-white">Cart({{$total}})</a>
+      </div>
+      <div class="d-flex nav-item dropdown">
+        @if(Session::get('user'))
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{Session::get('user')['name']}}</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        @else
+        <a class="nav-link text-white" href="/login">Login</a>
+        @endif
+      </div>
     </div>
   </div>
 </nav>
