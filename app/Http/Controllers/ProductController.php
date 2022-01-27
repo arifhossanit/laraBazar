@@ -33,6 +33,7 @@ class ProductController extends Controller
             $cart->user_id = $req->session()->get('user')['id'];
             $cart->product_id = $req->product_id;
             $cart->save();
+            return redirect('/');
         }
         else {
             return view('pages/login');
@@ -42,5 +43,19 @@ class ProductController extends Controller
     {
         $user_id = Session::get('user')['id'];
         return Cart::where('user_id',$user_id)->count();
+    }
+    function cartList()
+    {
+        $user_id=Session::get('user')['id'];
+        $data=Cart::join('products','cart.Product_id','=','products.id')
+                    ->select('products.*','cart.id As cart_id')
+                    ->where('cart.user_id',$user_id)
+                    ->get();
+        return view('pages/cartlist',compact('data'));
+    }
+    function removeCart($id)
+    {
+        Cart::destroy($id);
+        return redirect('/cartlist');
     }
 }

@@ -31,7 +31,7 @@
         <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
       <div class="d-flex">
-        <a href="" class="text-decoration-none text-white">Cart({{$total}})</a>
+        <a href="/cartlist" class="text-decoration-none text-white">Cart({{$total}})</a>
       </div>
       <div class="d-flex nav-item dropdown">
         @if(Session::get('user'))
