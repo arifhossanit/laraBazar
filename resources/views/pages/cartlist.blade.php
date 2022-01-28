@@ -2,7 +2,10 @@
 @section('content')
     <!-- search result section -->
     <div class="col-8 m-auto bg-white p-3 mt-3">
-        <h3 class="border-bottom">Shopping Cart</h2>
+        <div class="row g-1 border-bottom">
+            <h3 class="col-9">Shopping Cart</h2>
+            <a class="btn btn-primary col-3 mb-1" href="/checkout">Order Now</a>
+        </div>
         @forelse($data as $key=>$product)
         <div class="border-bottom">
             <div class="row g-0">
@@ -24,7 +27,7 @@
             </div>
         </div>
         @empty
-        <div class="text-danger fs-4 text-center">Soory, No result found!!</div>
+        <div class="text-danger fs-4 text-center">Soory, Cart is empty!!</div>
         @endforelse
     </div>
 

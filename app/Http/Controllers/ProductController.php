@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -57,5 +58,36 @@ class ProductController extends Controller
     {
         Cart::destroy($id);
         return redirect('/cartlist');
+    }
+    function checkOut()
+    {
+        $user_id=Session::get('user')['id'];
+        $total=Cart::join('products','cart.Product_id','=','products.id')
+                    ->select('products.*','cart.id As cart_id')
+                    ->sum('products.price');
+        return view('pages/checkout',compact('total'));
+    }
+    function orderPlace(Request $req)
+    {
+        $user_id=Session::get('user')['id'];
+        $all_cart=Cart::where('user_id',$user_id)->get();
+        foreach ($all_cart as $cart) {
+            $order=new Order;
+            $order->product_id=$cart->product_id;
+            $order->user_id=$cart->user_id;
+            $order->address=$req->address;
+            $order->status="pending";
+            $order->payment_method=$req->payment;
+            $order->payment_status="pending";
+            $saved=$order->save();
+        }
+        if ($saved) {
+            Cart::where('user_id',$user_id)->delete();
+            $req->session()->flash('message', 'Your order place, Successfully!');
+            return redirect('/');
+        }else {
+            $req->session()->flash('message', 'Something wrong, please try again!');
+            return redirect('/checkout');
+        }
     }
 }
