@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\backend\ProductManageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,8 @@ Route::get('/logout', function () {
     Session::forget('user');
     return view('pages/login');
 });
+Route::view('/register','pages.register');
+Route::post('/register', [UserController::class,'register']);
 Route::view('/login','pages.login');
 Route::post('/login', [UserController::class,'login']);
 Route::get('/', [ProductController::class,'index']);
@@ -32,3 +35,9 @@ Route::get('/cartlist', [ProductController::class,'cartList']);
 Route::get('/removeitem/{id}', [ProductController::class,'removeCart']);
 Route::get('/checkout', [ProductController::class,'checkOut']);
 Route::post('/orderplace', [ProductController::class,'orderPlace']);
+
+Route::get('/admin',[ProductManageController::class,'index']);
+Route::get('/productlist', [ProductManageController::class,'productList']);
+Route::view('/addproduct','backend.pages.add_product');
+Route::post('/addproduct', [ProductManageController::class,'addProduct']);
+Route::get('/delproduct/{id}', [ProductManageController::class,'delProduct']);

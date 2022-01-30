@@ -44,6 +44,11 @@
         <a class="nav-link text-white" href="/login">Login</a>
         @endif
       </div>
+      <div class="d-flex nav-item">
+        @if(!Session::get('user'))
+        <a class="nav-link text-white" href="/register">Register</a>
+        @endif
+      </div>
     </div>
   </div>
 </nav>
