@@ -1,32 +1,25 @@
 @extends('layouts.master')
 @section('content')
-<div class="container">
-    <h5 class="bg-white text-center my-2 p-2">Log IN</h5>
-    
-    <div class="row">
-        <div class="col-md-6 m-auto">
-            <form action="/login" method="POST">
+<div class="container vh-100">
+    <div class="row my-5">
+        <div class="col-md-4 m-auto bg-white rounded p-5">
+            <h4>Hell<i class="fas fa-power-off fs-6"></i>! let's get started </h4>
+            <h6 class="fw-light">Sign in to continue.</h6>
+            <form action="/login" method="POST" class="mt-4">
                 @csrf
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Save me</label>
-                </div>
-                <?php 
-                // echo basename($_SERVER['HTTP_REFERER']);
-                // if (!empty($_SERVER['HTTP_REFERER'])) {
-                //    echo '<input type="hidden" name="redirect" value="'.basename($_SERVER['HTTP_REFERER']).'" >';
-                // }
-                ?>
+                <div id="emailHelp" class="form-text">Don't have an account? <a class="text-decoration-none" href="/register">Create</a></div>
                 
-                <button type="submit" class="btn btn-primary btn-block" name="login">Log In</button>
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-primary rounded-pill" name="login">LOGIN</button>
+                </div>
             </form>
         </div>
     </div>

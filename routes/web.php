@@ -35,6 +35,8 @@ Route::get('/cartlist', [ProductController::class,'cartList']);
 Route::get('/removeitem/{id}', [ProductController::class,'removeCart']);
 Route::get('/checkout', [ProductController::class,'checkOut']);
 Route::post('/orderplace', [ProductController::class,'orderPlace']);
+Route::view('/about','pages.about');
+Route::view('/contact','pages.contact');
 
 Route::get('/admin',[ProductManageController::class,'index']);
 Route::get('/productlist', [ProductManageController::class,'productList']);

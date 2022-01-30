@@ -47,12 +47,18 @@ class ProductController extends Controller
     }
     function cartList()
     {
-        $user_id=Session::get('user')['id'];
-        $data=Cart::join('products','cart.Product_id','=','products.id')
-                    ->select('products.*','cart.id As cart_id')
-                    ->where('cart.user_id',$user_id)
-                    ->get();
-        return view('pages/cartlist',compact('data'));
+        if (Session::has('user')) {
+            $user_id=Session::get('user')['id'];
+            $data=Cart::join('products','cart.Product_id','=','products.id')
+                        ->select('products.*','cart.id As cart_id')
+                        ->where('cart.user_id',$user_id)
+                        ->get();
+            return view('pages/cartlist',compact('data'));
+        }
+        else 
+        {
+            return view('pages/login');
+        }
     }
     function removeCart($id)
     {
