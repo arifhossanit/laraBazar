@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('content')
 <!-- Product-page -->
-  <Div class="row my-4 container">
-      <div class="col-12 col-md-6 bg-light">
-          <img src="{{$product->gallery}}" alt="Product image" class="card-img"> 
+  <Div class="row my-4 container bg-light">
+      <div class="col-12 col-md-6">
+          <img src="{{asset('storage/gallery/'.$product['gallery'])}}" alt="Product image" class="card-img"> 
       </div>
-      <div class="col-12 col-md-6 bg-light">
+      <div class="col-12 col-md-6">
           <h4>{{$product->name}}</h4> 
           <div class="ratings text-warning">
               <i class="fa fa-star"></i>
@@ -20,21 +20,21 @@
           <p><b>Price: </b>৳ {{$product->price}}</p>
           <p>
               <b><label for="qu">Quantity: </label> </b> 
-              <input type="text" value="1" id="qu" class="form-control-sm text-center" > 
+              <input class="form-control-sm text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
               <form action="/add_to_cart" method="post">
-                  @csrf
-                  <input type="hidden" name="product_id" value="{{$product->id}}">
-                  <button href="#" class="btn btn-primary" type="submit" id="button-addon1" >Add To Cart</button>
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <button href="#" class="btn btn-outline-primary" type="submit" id="button-addon1" >
+                    <i class="fas fa-cart-plus"></i> Add To Cart
+                </button>
               </form>
-              
-        </p> 
+            </p> 
       </div>
-      <div class="col-12 bg-light mt-3">
+      <div class="col-12 bg-light mt-3 border-top">
           <div class="p-3 details-2 ">
               <h4 class="fw-bold">Product Details</h3>
               <p>{{$product->description}}</p>
           </div>
       </div>
   </Div>
-
 @endsection

@@ -40,7 +40,7 @@
                             <td>{{$product->price}}</td>
                             <td>{{$product->category}}</td>
                             <td>{{$product->description}}</td>
-                            <td><img src="{{asset('storage/gallery/'.$product->gallery)}}" alt=""></td>
+                            <td><img src="{{asset('storage/gallery/'.$product->gallery)}}" alt="Product image" class="w-75"></td>
                             <td>
                                 <a href="/delproduct/{{$product->id}}" class="btn btn-danger">Delete</a>
                             </td>
