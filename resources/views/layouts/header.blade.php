@@ -26,12 +26,12 @@
         <li class="nav-item">
         </li>
       </ul>
-      <form class="d-flex me-3" action="\search" method="GET">
-        <input name="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
+      <form class="d-flex me-5 w-50 input-group" action="\search" method="GET">
+        <input name="query" class="form-control" type="search" placeholder="Search with product name" aria-label="Search">
+        <button class="btn btn-outline-light input-group-text" type="submit" id="btnsearch"><i class="fas fa-search"></i></button>
       </form>
       <div class="d-flex">
-        <a href="/cartlist" class="btn btn-outline-light"><i class="fab fa-opencart"></i> Cart({{$total}})</a>
+        <a href="/cartlist" class="btn text-warning"><i class="fab fa-opencart"></i> Cart({{$total}})</a>
       </div>
       <div class="d-flex nav-item dropdown">
         @if(Session::get('user'))

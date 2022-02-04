@@ -64,6 +64,12 @@
                 </div>
             </div>
         </div>
+        @if($message = session()->pull('status'))
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{$message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -73,33 +79,29 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
+                            <th>SL No.</th>
                             <th>Customer</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Address</th>
-                            <th>Payment</th>
-                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>SL No.</th>
                             <th>Customer</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Address</th>
-                            <th>Payment</th>
-                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @forelse ($data as $order)
+                        @forelse ($data as $key=>$user)
                         <tr>
-                            <td>{{$order->uname}}</td>
-                            <td>{{$order->pname}}</td>
-                            <td>{{$order->pprice}}</td>
-                            <td>{{$order->address}}</td>
-                            <td>{{$order->payment_status}}</td>
-                            <td>{{$order->status}}</td>
+                            <td>{{$key+1}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>
+                                <a href="{{ route('del_user', $user->id) }}" class="btn btn-danger" onclick="return confirm('Want to delete?')">Delete</a>
+                            </td>
                         </tr>
                         @empty
                             <p class="text-center">No record found</p>

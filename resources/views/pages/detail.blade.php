@@ -17,7 +17,7 @@
           </div>
           <p><b>Brand: </b> Sony</p>
           <p><b>Category: </b> {{$product->category}}</p>
-          <p><b>Price: </b>৳ {{$product->price}}</p>
+          <p><b>Price: </b>৳{{$product->price}}</p>
           <p>
               <b><label for="qu">Quantity: </label> </b> 
               <input class="form-control-sm text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />

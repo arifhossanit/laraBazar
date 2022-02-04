@@ -20,21 +20,21 @@ class ProductSeeder extends Seeder
                 'name'=>"LG Mobile",
                 'price'=>"10000",
                 'description'=>"A smartphone with 4gb ram",
-                'category'=>'mobile',
+                'category'=>'Mobile & Computer',
                 'gallery'=>'https://www.lg.com'
             ],
             [
                 'name'=>"Oppo",
                 'price'=>"12000",
                 'description'=>"A smartphone with 6gb ram",
-                'category'=>'mobile',
+                'category'=>'Mobile & Computer',
                 "gallery"=>'https://www.oppo.com'
             ],
             [
                 'name'=>"samsung",
                 'price'=>"10000",
                 'description'=>"4k oled android tv",
-                'category'=>'TV',
+                'category'=>'Home Applience',
                 "gallery"=>'https://www.samsung.com'
             ]
         ]);

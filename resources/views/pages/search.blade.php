@@ -15,7 +15,7 @@
                             <h5 class="card-title">{{$product['name']}}</h5>
                             <p class="card-text">{{$product['description']}}</p>
                         </a>
-                        <p class="card-text"><small class="text-danger">৳ {{$product['price']}}</small></p>
+                        <p class="card-text"><small class="text-danger">৳{{$product['price']}}</small></p>
                     </div>
                 </div>
             </div>
