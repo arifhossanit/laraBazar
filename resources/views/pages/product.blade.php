@@ -1,7 +1,17 @@
 @extends('layouts.master')
 @section('content')
+
+    <!-- Header banner-->
+    <header class="py-5" style="background-color: #0567fa;">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Shop in style</h1>
+                <p class="lead fw-normal text-white-50 mb-0">One-stop e-commerce solution</p>
+            </div>
+        </div>
+    </header>
     <!-- carousel -->
-    <div id="carouselExampleCaptions" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+    <!-- <div id="carouselExampleCaptions" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
@@ -28,24 +38,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </a>
-    </div>
-    <!-- <section class="container my-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach($data as $key=>$product)
-            <div class="col">
-                <div class="card h-100">
-                    <a href="detail/{{$product['id']}}" class="text-decoration-none underline">
-                        <img src="{{asset('storage/gallery/'.$product['gallery'])}}" class="card-img-top" alt="pic">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$product['name']}}</h5>
-                            <p class="card-text">{{$product['description']}}</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </section> -->
+    </div> -->
     <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

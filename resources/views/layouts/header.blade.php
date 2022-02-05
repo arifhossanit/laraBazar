@@ -7,7 +7,7 @@
   
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
+  <div class="container px-4 px-lg-5">
     <a class="navbar-brand" href="/">LaraBazar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
         <li class="nav-item">
         </li>
       </ul>
-      <form class="d-flex me-5 w-50 input-group" action="\search" method="GET">
+      <form class="d-flex mx-5 input-group" action="\search" method="GET">
         <input name="query" class="form-control" type="search" placeholder="Search with product name" aria-label="Search">
         <button class="btn btn-outline-light input-group-text" type="submit" id="btnsearch"><i class="fas fa-search"></i></button>
       </form>
