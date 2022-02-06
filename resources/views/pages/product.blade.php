@@ -67,5 +67,6 @@
                 @endforeach
                 </div>
             </div>
+            <div class="mx-auto" style="width: 150px;">{{$data->onEachSide(3)->links()}}</div>
         </section>
 @endsection

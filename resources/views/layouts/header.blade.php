@@ -41,7 +41,7 @@
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
           </ul>
         @else
-        <a class="nav-link text-white" href="/login">Login</a>
+        <a class="nav-link text-white" href="/user_login">Login</a>
         @endif
       </div>
       <div class="d-flex nav-item">

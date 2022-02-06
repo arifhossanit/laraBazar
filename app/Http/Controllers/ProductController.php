@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     function index()
     {
-        $data= Product::all();
+        $data= Product::paginate(12);
         // print_r(compact('data'));
         return view('pages/product', compact('data'));
     }

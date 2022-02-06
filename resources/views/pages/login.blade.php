@@ -5,7 +5,7 @@
         <div class="col-md-4 m-auto bg-white rounded p-5">
             <h4>Hell<i class="fas fa-power-off fs-6"></i>! let's get started </h4>
             <h6 class="fw-light">Sign in to continue.</h6>
-            <form action="/login" method="POST" class="mt-4">
+            <form action="/user_login" method="POST" class="mt-4">
                 @csrf
                 <div class="form-group mt-3">
                     <label for="email">Email address</label>

@@ -18,7 +18,7 @@ class UserController extends Controller
             return redirect('/');
         }
         else{
-            return "Username or password not match";
+            return redirect('/user_login');
         }
     }
     function register(Request $req)
