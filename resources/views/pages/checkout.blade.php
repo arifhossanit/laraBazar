@@ -32,7 +32,7 @@
             @csrf
             <div class="form-group">
                 <label for="address">Delivery Address:</label>
-                <textarea class="form-control" name="address" id="address" cols="30" rows="2"></textarea>
+                <textarea class="form-control" name="address" id="address" cols="30" rows="2" required></textarea>
             </div>
             <div class="form-group">
                 <label for="payment">Payment Method</label>

@@ -38,6 +38,7 @@ Route::get('/checkout', [ProductController::class,'checkOut']);
 Route::post('/orderplace', [ProductController::class,'orderPlace']);
 Route::view('/about','pages.about');
 Route::view('/contact','pages.contact');
+Route::view('/orderstatus','pages.orderstatus');
 
 
 

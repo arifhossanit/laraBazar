@@ -90,7 +90,7 @@ class ProductController extends Controller
         if ($saved) {
             Cart::where('user_id',$user_id)->delete();
             $req->session()->flash('message', 'Your order place, Successfully!');
-            return redirect('/');
+            return redirect('/orderstatus');
         }else {
             $req->session()->flash('message', 'Something wrong, please try again!');
             return redirect('/checkout');

@@ -10,7 +10,7 @@
         <div class="border-bottom">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="{{$product['gallery']}}" class="img-fluid rounded-start" alt="product pic">
+                    <img src="{{asset('storage/gallery/'.$product['gallery'])}}" class="img-fluid rounded-start" alt="product pic">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">

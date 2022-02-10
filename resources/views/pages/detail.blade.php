@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('content')
 <!-- Product-page -->
-  <Div class="row my-4 container bg-light">
+  <Div class="row my-4 container bg-light m-auto">
       <div class="col-12 col-md-6">
           <img src="{{asset('storage/gallery/'.$product['gallery'])}}" alt="Product image" class="card-img"> 
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 mt-5">
           <h4>{{$product->name}}</h4> 
           <div class="ratings text-warning">
               <i class="fa fa-star"></i>
