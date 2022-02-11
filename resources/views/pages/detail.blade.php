@@ -18,14 +18,15 @@
           <p><b>Brand: </b> Sony</p>
           <p><b>Category: </b> {{$product->category}}</p>
           <p><b>Price: </b>৳{{$product->price}}</p>
-          <p>
-              <b><label for="qu">Quantity: </label> </b> 
-              <input class="form-control-sm text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+          <p> 
               <form action="/add_to_cart" method="post">
                 @csrf
+                <label for="qu"><b>Quantity:</b> </label> 
+                <input class="form-control-sm text-center me-3" id="qty" type="number" name="qty" min="1" value="1" style="max-width: 5rem" required />
                 <input type="hidden" name="product_id" value="{{$product->id}}">
-                <button href="#" class="btn btn-outline-primary" type="submit" id="button-addon1" >
-                    <i class="fas fa-cart-plus"></i> Add To Cart
+                <br>
+                <button href="#" class="btn btn-outline-primary mt-3" type="submit" id="button-addon1" >
+                    <i class="fas fa-cart-plus px-2"></i> Add To Cart
                 </button>
               </form>
             </p> 

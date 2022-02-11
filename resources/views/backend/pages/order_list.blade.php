@@ -23,7 +23,9 @@
                         <tr>
                             <th>Customer</th>
                             <th>Product</th>
-                            <th>Price</th>
+                            <th>Unit Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
                             <th>Address</th>
                             <th>Payment</th>
                             <th>Status</th>
@@ -33,7 +35,9 @@
                         <tr>
                             <th>Customer</th>
                             <th>Product</th>
-                            <th>Price</th>
+                            <th>Unit Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
                             <th>Address</th>
                             <th>Payment</th>
                             <th>Status</th>
@@ -45,8 +49,10 @@
                             <td>{{$order->uname}}</td>
                             <td>{{$order->pname}}</td>
                             <td>{{$order->pprice}}</td>
+                            <td>{{$order->qty}}</td>
+                            <td>{{$order->pprice*$order->qty}}</td>
                             <td>{{$order->address}}</td>
-                            <td>{{$order->payment_status}}</td>
+                            <td>{{$order->payment_method}}</td>
                             <td>
                                 <form action="{{route('osc')}}" method="post">
                                     @csrf

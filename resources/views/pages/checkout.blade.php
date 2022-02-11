@@ -1,5 +1,13 @@
 @extends('layouts.master')
 @section('content')
+
+<?php
+// total amount calculation
+    $total=0;
+    foreach($data as $key=>$item){
+        $total += $item->price*$item->qty;
+    }
+?>
     <!-- search result section -->
     <div class="col-8 m-auto bg-white p-3 mt-3">
         <div class="row g-1 border-bottom">
@@ -11,7 +19,7 @@
             <tbody>
                 <tr>
                     <td>Price</td>
-                    <td>৳{{$total}}</td>
+                    <td>৳ {{$total}}</td>
                 </tr>
                 <tr>
                     <td>Tax</td>

@@ -33,13 +33,12 @@ class UserController extends Controller
           'confirm_password.same' => 'Confirm password not match.',
         ]
     );
-        dd($validated);
-        // $user= new User;
-        // $user->name=$req->name;
-        // $user->email=$req->email;
-        // $user->password=Hash::make($req->password);
-        // $user->save();
-        // // print_r($user);
-        // return redirect('/login');
+        $user= new User;
+        $user->name=$req->name;
+        $user->email=$req->email;
+        $user->password=Hash::make($req->password);
+        $user->save();
+        // print_r($user);
+        return redirect('/user_login')->with('status', 'Registration successful! Please login.');
     }
 }
