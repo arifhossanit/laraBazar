@@ -45,11 +45,11 @@
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
                             <td>{{$product->category}}</td>
-                            <td>{{$product->description}}</td>
-                            <td><img src="{{asset('storage/gallery/'.$product->gallery)}}" alt="Product image" class="w-75"></td>
+                            <td class="text-truncate" style="max-width: 300px;">{{$product->description}}</td>
+                            <td class="col-1"><img src="{{asset('storage/gallery/'.$product->gallery)}}" alt="Product image" class="w-100"></td>
                             <td>
-                                <a href="/admin/delproduct/{{$product->id}}" class="btn btn-danger" onclick="return confirm('Want to delete?')">Delete</a>
-                                <a href="/admin/editproduct/{{$product->id}}" class="btn btn-warning">Edit</a>
+                                <a href="{{route('delproduct', $product->id)}}" class="btn btn-danger" onclick="return confirm('Want to delete?')">Delete</a>
+                                <a href="{{route('editproduct', $product->id)}}" class="btn btn-warning">Edit</a>
                             </td>
                         </tr>
                         @empty

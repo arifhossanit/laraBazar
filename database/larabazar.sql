@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 01:43 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Feb 19, 2022 at 10:08 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Md. Arif Hossan', 'admin@admin.com', '2022-02-02 11:57:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '8hazF9INq6FiLEI9kmyv0V9TZJUr0poyjUSXIZngUEybTl49v6hN6hSL20Ub', '2022-02-02 11:57:40', '2022-02-02 11:57:40');
+(1, 'Md. Arif Hossan', 'admin@admin.com', '2022-02-02 11:57:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'vkppuhlz18tovHh0OLlR8IwUjGkHo301LGHWglrnKvlY4g8TiwLsSYyUZTel', '2022-02-02 11:57:40', '2022-02-02 11:57:40');
 
 -- --------------------------------------------------------
 
@@ -55,6 +55,7 @@ CREATE TABLE `cart` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -63,8 +64,9 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(19, 3, 2, '2022-02-10 05:48:42', '2022-02-10 05:48:42');
+INSERT INTO `cart` (`id`, `product_id`, `user_id`, `qty`, `created_at`, `updated_at`) VALUES
+(3, 5, 2, 4, '2022-02-11 12:42:38', '2022-02-11 13:52:04'),
+(4, 8, 2, 1, '2022-02-11 12:42:46', '2022-02-11 12:42:46');
 
 -- --------------------------------------------------------
 
@@ -103,10 +105,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2022_01_26_194258_create_cart_table', 3),
-(7, '2022_01_28_174744_create_orders_table', 4),
 (8, '2022_02_02_173539_create_admins_table', 5),
-(9, '2022_01_24_200420_create_products_table', 6);
+(9, '2022_01_24_200420_create_products_table', 6),
+(10, '2022_01_26_194258_create_cart_table', 7),
+(11, '2022_01_28_174744_create_orders_table', 8);
 
 -- --------------------------------------------------------
 
@@ -118,6 +120,7 @@ CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -130,22 +133,10 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `product_id`, `user_id`, `address`, `status`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
-(1, 3, 2, 'narayanganj', 'complete', 'cash', 'pending', '2022-01-28 12:57:19', '2022-02-04 14:01:32'),
-(2, 2, 2, 'dhaka', 'pending', 'cash', 'pending', '2022-01-28 13:02:44', '2022-01-28 13:02:44'),
-(3, 2, 2, 'gazipur', 'pending', 'cash', 'pending', '2022-01-28 13:04:21', '2022-01-28 13:04:21'),
-(4, 1, 2, 'ds', 'pending', 'cash', 'pending', '2022-01-28 13:06:02', '2022-01-28 13:06:02'),
-(5, 1, 2, 'reew', 'pending', 'cash', 'pending', '2022-01-28 13:09:25', '2022-01-28 13:09:25'),
-(6, 2, 2, 'tr', 'pending', 'cash', 'pending', '2022-01-28 13:13:00', '2022-01-28 13:13:00'),
-(7, 3, 2, 'fdf', 'pending', 'cash', 'pending', '2022-01-28 13:14:13', '2022-01-28 13:14:13'),
-(8, 2, 2, 'gdfg', 'pending', 'cash', 'pending', '2022-01-28 13:20:26', '2022-01-28 13:20:26'),
-(9, 2, 2, 'fdsfs', 'pending', 'cash', 'pending', '2022-01-28 13:21:01', '2022-01-28 13:21:01'),
-(10, 2, 2, 'dfs', 'pending', 'cash', 'pending', '2022-01-28 13:22:22', '2022-01-28 13:22:22'),
-(11, 2, 2, 'ertet', 'pending', 'cash', 'pending', '2022-01-28 13:25:42', '2022-01-28 13:25:42'),
-(12, 2, 2, 'trt', 'pending', 'cash', 'pending', '2022-01-28 13:26:52', '2022-01-28 13:26:52'),
-(13, 3, 2, 'narayanganj', 'pending', 'cash', 'pending', '2022-02-10 04:29:05', '2022-02-10 04:29:05'),
-(14, 4, 2, 'narayanganj', 'pending', 'cash', 'pending', '2022-02-10 04:29:05', '2022-02-10 04:29:05'),
-(15, 2, 2, 'dhaka', 'pending', 'cash', 'pending', '2022-02-10 05:46:22', '2022-02-10 05:46:22');
+INSERT INTO `orders` (`id`, `product_id`, `user_id`, `qty`, `address`, `status`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
+(1, 2, 2, 2, 'narayanganj', 'pending', 'cash', 'pending', '2022-02-11 12:30:13', '2022-02-11 12:30:13'),
+(2, 1, 2, 2, 'narayanganj', 'complete', 'cash', 'pending', '2022-02-11 12:30:13', '2022-02-11 12:58:58'),
+(3, 11, 6, 1, 'Dhaka', 'pending', 'cash', 'pending', '2022-02-11 12:57:07', '2022-02-11 12:57:07');
 
 -- --------------------------------------------------------
 
@@ -236,7 +227,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(2, 'arif', 'arif@gmail.com', '$2y$10$ZPfX007TZ1PbU37wm6l6LO7nTiR7Q01mgNoUastfBYwK.WMltCDKK', NULL, NULL);
+(2, 'arif', 'arif@gmail.com', '$2y$10$ZPfX007TZ1PbU37wm6l6LO7nTiR7Q01mgNoUastfBYwK.WMltCDKK', NULL, NULL),
+(6, 'piash', 'piash@gamil.com', '$2y$10$JcGNf./pXvvjlpAPJBQXt.YzDPGrNSokSdEoVIyHTLF4Om6aVTiJy', '2022-02-11 12:43:30', '2022-02-11 12:43:30');
 
 --
 -- Indexes for dumped tables
@@ -315,7 +307,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -327,13 +319,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -351,7 +343,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

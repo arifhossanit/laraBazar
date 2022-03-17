@@ -43,7 +43,7 @@ class ProductController extends Controller
             // $cart->user_id = $req->session()->get('user')['id'];
             // $cart->product_id = $req->product_id;
             // $cart->save();
-            return redirect('/');
+            return redirect()->route('home');
         }
         else {
             return view('pages/login');
@@ -72,7 +72,7 @@ class ProductController extends Controller
     function removeCart($id)
     {
         Cart::destroy($id);
-        return redirect('/cartlist');
+        return redirect()->route('cartlist');
     }
     function checkOut()
     {
@@ -102,10 +102,10 @@ class ProductController extends Controller
         if ($saved) {
             Cart::where('user_id',$user_id)->delete();
             $req->session()->flash('message', 'Your order place, Successfully!');
-            return redirect('/orderstatus');
+            return redirect()->route('orderstatus');
         }else {
             $req->session()->flash('message', 'Something wrong, please try again!');
-            return redirect('/checkout');
+            return redirect()->route('checkout');
         }
     }
 }

@@ -8,7 +8,7 @@
             @if($message = Session::get('status'))
                 <div class="alert alert-success">{{$message}}</div>
             @endif
-            <form action="/user_login" method="POST" class="mt-4">
+            <form action="{{route('user.login')}}" method="POST" class="mt-4">
                 @csrf
                 <div class="form-group mt-3">
                     <label for="email">Email address</label>

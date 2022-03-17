@@ -23,22 +23,23 @@ use App\Http\Controllers\backend\AdminController;
 Route::get('/logout', function () {
     Session::forget('user');
     return view('pages/login');
-});
-Route::view('/register','pages.register');
-Route::post('/register', [UserController::class,'register']);
-Route::view('/user_login','pages.login');
-Route::post('/user_login', [UserController::class,'login']);
-Route::get('/', [ProductController::class,'index']);
-Route::get('detail/{id}', [ProductController::class,'detail']);
-Route::get('search', [ProductController::class,'search']);
-Route::post('add_to_cart', [ProductController::class,'addToCart']);
-Route::get('/cartlist', [ProductController::class,'cartList']);
-Route::get('/removeitem/{id}', [ProductController::class,'removeCart']);
-Route::get('/checkout', [ProductController::class,'checkOut']);
-Route::post('/orderplace', [ProductController::class,'orderPlace']);
-Route::view('/about','pages.about');
-Route::view('/contact','pages.contact');
-Route::view('/orderstatus','pages.orderstatus');
+})->name('user.logout');
+Route::view('/register','pages.register')->name('user.register.page');
+Route::post('/register', [UserController::class,'register'])->name('user.register');
+Route::view('/user_login','pages.login')->name('user.login.page');
+Route::post('/user_login', [UserController::class,'login'])->name('user.login');
+
+Route::get('/', [ProductController::class,'index'])->name('home');
+Route::get('detail/{id}', [ProductController::class,'detail'])->name('detail');
+Route::get('search', [ProductController::class,'search'])->name('search');
+Route::post('add_to_cart', [ProductController::class,'addToCart'])->name('add.to.cart');
+Route::get('/cartlist', [ProductController::class,'cartList'])->name('cartlist');
+Route::get('/removeitem/{id}', [ProductController::class,'removeCart'])->name('removeitem');
+Route::get('/checkout', [ProductController::class,'checkOut'])->name('checkout');
+Route::post('/orderplace', [ProductController::class,'orderPlace'])->name('orderplace');
+Route::view('/about','pages.about')->name('about');
+Route::view('/contact','pages.contact')->name('contact');
+Route::view('/orderstatus','pages.orderstatus')->name('orderstatus');
 
 
 
@@ -52,14 +53,14 @@ Route::group(['prefix'=>'admin'], function(){
         // Route::view('/dashboard','backend.pages.dashboard');
         Route::get('/dashboard',[ProductManageController::class,'index'])->name('dashboard');
         Route::get('/deluser/{id}',[ProductManageController::class,'delUser'])->name('del_user');
-        Route::get('/orderlist',[ProductManageController::class,'orderList'])->name('order');
+        Route::get('/orderlist',[ProductManageController::class,'orderList'])->name('orderlist');
         Route::post('/order_status_change',[ProductManageController::class,'orderStatusChange'])->name('osc');
         Route::get('/productlist', [ProductManageController::class,'productList'])->name('productlist');
-        Route::view('/addproduct','backend.pages.add_product');
-        Route::post('/addproduct', [ProductManageController::class,'addProduct']);
-        Route::get('/delproduct/{id}', [ProductManageController::class,'delProduct']);
-        Route::get('/editproduct/{id}', [ProductManageController::class,'editProduct']);
-        Route::post('/updateproduct', [ProductManageController::class,'updateProduct']);
+        Route::view('/addproduct','backend.pages.add_product')->name('addproduct');
+        Route::post('/addproduct', [ProductManageController::class,'addProduct'])->name('addedproduct');
+        Route::get('/delproduct/{id}', [ProductManageController::class,'delProduct'])->name('delproduct');
+        Route::get('/editproduct/{id}', [ProductManageController::class,'editProduct'])->name('editproduct');
+        Route::post('/updateproduct', [ProductManageController::class,'updateProduct'])->name('updateproduct');
         Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
     });
 });

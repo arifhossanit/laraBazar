@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <!-- Product-page -->
-  <Div class="row my-4 container bg-light m-auto">
+  <div class="row my-4 container bg-light m-auto">
       <div class="col-12 col-md-6">
           <img src="{{asset('storage/gallery/'.$product['gallery'])}}" alt="Product image" class="card-img"> 
       </div>
@@ -15,11 +15,11 @@
               <i class="fa fa-star-o"></i>
               (2)
           </div>
-          <p><b>Brand: </b> Sony</p>
+          <p><b>Brand: </b> XYZ</p>
           <p><b>Category: </b> {{$product->category}}</p>
           <p><b>Price: </b>৳{{$product->price}}</p>
           <p> 
-              <form action="/add_to_cart" method="post">
+              <form action="{{route('add.to.cart')}}" method="post">
                 @csrf
                 <label for="qu"><b>Quantity:</b> </label> 
                 <input class="form-control-sm text-center me-3" id="qty" type="number" name="qty" min="1" value="1" style="max-width: 5rem" required />
@@ -33,9 +33,9 @@
       </div>
       <div class="col-12 bg-light mt-3 border-top">
           <div class="p-3 details-2 ">
-              <h4 class="fw-bold">Product Details</h3>
+              <h4 class="fw-bold">Product Details</h4>
               <p>{{$product->description}}</p>
           </div>
       </div>
-  </Div>
+  </div>
 @endsection

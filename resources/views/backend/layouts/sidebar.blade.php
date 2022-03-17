@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="/admin/dashboard">
+                <a class="nav-link" href="{{route('dashboard')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -19,15 +19,15 @@
                         <a class="nav-link" href="/admin/addproduct">Add Product</a>
                     </nav>
                 </div> -->
-                <a class="nav-link" href="/admin/productlist">
+                <a class="nav-link" href="{{route('productlist')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
                     Product List
                 </a>
-                <a class="nav-link" href="/admin/addproduct">
+                <a class="nav-link" href="{{route('addproduct')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-folder-plus"></i></div>
                     Add Product
                 </a>
-                <a class="nav-link" href="/admin/orderlist">
+                <a class="nav-link" href="{{route('orderlist')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Orders
                 </a>

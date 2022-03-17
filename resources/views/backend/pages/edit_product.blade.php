@@ -12,7 +12,7 @@
                 DataTable Example
             </div>
             <div class="card-body">
-                <form class="row g-3 needs-validation was-validated" action="/admin/updateproduct" method="POST" enctype="multipart/form-data" novalidate>
+                <form class="row g-3 needs-validation was-validated" action="{{route('updateproduct')}}" method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
                     <input type="hidden" name="id" value="{{$data->id}}">
                     <div class="col-md-6">

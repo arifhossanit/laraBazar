@@ -7,7 +7,7 @@
             <p>Aww yeah, you successfully place your order.</p>
             <hr>
             <div class="mb-0 d-grid gap-2 col-7 mx-auto">
-                <a class="btn btn-primary" href="/">Continue Shopping <i class="fas fa-play"></i></a>
+                <a class="btn btn-primary" href="{{route('home')}}">Continue Shopping <i class="fas fa-play"></i></a>
             </div>
         </div>
     </div>

@@ -36,5 +36,5 @@ header.masthead {
   }
 
   .veiw-h{
-    height: 100vh;
+    min-height: 100vh;
   }

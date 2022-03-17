@@ -37,7 +37,7 @@ class ProductManageController extends Controller
         $order=Order::find($req->id);
         $order->status=$req->status;
         $order->save();
-        return redirect()->route('order')
+        return redirect()->route('orderlist')
         ->with('state','Order status change successfully');
     }
     function productList()
@@ -59,10 +59,10 @@ class ProductManageController extends Controller
         if ($product->save()) {
             $uploadFile->storeAs('public/gallery', $file_name);
             $req->session()->put('status','Product add successfully.');
-            return redirect('/admin/productlist');
+            return redirect()->route('productlist');
         }else {
             $req->session()->put('status','Fail to add product.');
-            return redirect('/admin/addproduct');
+            return redirect()->route('addproduct');
         }
     }
 
@@ -72,7 +72,7 @@ class ProductManageController extends Controller
         Storage::delete('/public/gallery/'.$product->gallery);
         $product->delete();
         $req->session()->put('status','Product remove successfully.');
-        return redirect('/admin/productlist');
+        return redirect()->route('productlist');
     }
 
     function editProduct($id)
@@ -97,19 +97,19 @@ class ProductManageController extends Controller
             if ($product->save()) {
                 $uploadFile->storeAs('public/gallery', $file_name);
                 $req->session()->put('status','Product update successfull.');
-                return redirect('/admin/productlist');
+                return redirect()->route('productlist');
             }else {
                 $req->session()->put('status','Fail to update product.');
-                return redirect('/admin/editproduct/{$id}');
+                return redirect()->route('editproduct', $id);
             }
         }else {
             $product->gallery = $req->oldgallery;
             if ($product->save()) {
                 $req->session()->put('status','Product update successfull.');
-                return redirect('/admin/productlist');
+                return redirect()->route('productlist');
             }else {
                 $req->session()->put('status','Fail to update product.');
-                return redirect('/admin/editproduct/{$id}');
+                return redirect()->route('productlist', $id);
             }
         }
         

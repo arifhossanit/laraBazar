@@ -11,8 +11,7 @@
     <!-- search result section -->
     <div class="col-8 m-auto bg-white p-3 mt-3">
         <div class="row g-1 border-bottom">
-            <h3 class="col-9">Shopping Cart</h2>
-            <a class="btn btn-primary col-3 mb-1" href="/checkout">Order Now</a>
+            <h3 class="col-9">Shopping Cart</h3>
         </div>
         <div class="border-bottom">
         <table class="table table-striped table-hover">
@@ -36,7 +35,7 @@
             </tbody>
         </table>
 
-        <form action="/orderplace" method="POST">
+        <form action="{{route('orderplace')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="address">Delivery Address:</label>

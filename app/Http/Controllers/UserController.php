@@ -15,10 +15,10 @@ class UserController extends Controller
         if ($user && Hash::check($req->password, $user->password)) 
         {
             $req->session()->put('user', $user);
-            return redirect('/');
+            return redirect()->route('home');
         }
         else{
-            return redirect('/user_login');
+            return redirect()->route('user.login');
         }
     }
     function register(Request $req)
@@ -39,6 +39,6 @@ class UserController extends Controller
         $user->password=Hash::make($req->password);
         $user->save();
         // print_r($user);
-        return redirect('/user_login')->with('status', 'Registration successful! Please login.');
+        return redirect()->route('user.login')->with('status', 'Registration successful! Please login.');
     }
 }

@@ -4,8 +4,8 @@
     <main class="veiw-h">
         <div class="col-8 m-auto bg-white p-3 mt-3">
             <div class="row g-1 border-bottom">
-                <h3 class="col-9">Shopping Cart</h2>
-                <a class="btn btn-primary col-3 mb-1" href="/checkout">Order Now</a>
+                <h3 class="col-9">Shopping Cart</h3>
+                <a class="btn btn-primary col-3 mb-1" href="{{route('checkout')}}">Order Now</a>
             </div>
             @forelse($data as $key=>$product)
             <div class="border-bottom">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <a href="detail/{{$product['id']}}" class="text-decoration-none underline">
+                            <a href="{{route('detail', $product['id'])}}" class="text-decoration-none underline">
                                 <h5 class="card-title">{{$product['name']}}</h5>
                                 <p class="card-text text-truncate"> {{$product['description']}}</p>
                             </a>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-warning mt-3" href="/removeitem/{{$product['cart_id']}}" >Remove Item</a>
+                        <a class="btn btn-warning mt-3" href="{{route('removeitem', $product['cart_id'])}}" >Remove Item</a>
                     </div>
                 </div>
             </div>
